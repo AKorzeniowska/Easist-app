@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigationPatients"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/patients" />
+    <item
+        android:id="@+id/navigationDiary"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/diary" />
+    <item
+        android:id="@+id/navigationStatistics"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/statistics" />
+    <item
+        android:id="@+id/navigationDoctorInfo"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/doctor" />
+    <item
+        android:id="@+id/navigationUserInfo"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/my_profile" />
+</menu>

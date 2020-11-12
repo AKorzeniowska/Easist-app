@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/diaryEntryEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="340dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/diary_entry_note"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/continueDiaryEntryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleepTimeToEdit">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/diaryEntryEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sleepTimeToEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/sleep_time_from"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/diaryEntryEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleepTimeFromEdit">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sleepTimeToEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sleepTimeFromEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/sleep_time_to"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/sleepTimeToEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sleepTimeFromEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/how_do_you_feel_today"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/sleepTimeFromEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <RadioButton
+            android:id="@+id/badMoodRadioButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/alignment_selector"
+            android:button="@drawable/ic_bad"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/notGoodMoodRadioButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/alignment_selector"
+            android:button="@drawable/ic_not_good" />
+
+        <RadioButton
+            android:id="@+id/mehMoodRadioButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/alignment_selector"
+            android:button="@drawable/ic_not_good" />
+
+        <RadioButton
+            android:id="@+id/fineMoodRadioButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/alignment_selector"
+            android:button="@drawable/ic_good" />
+
+        <RadioButton
+            android:id="@+id/goodMoodRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/alignment_selector"
+            android:button="@drawable/ic_good" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/continueDiaryEntryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="110dp"
+        android:text="@string/continue_txt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryEntryEdit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
