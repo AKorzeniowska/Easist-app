@@ -37,8 +37,8 @@ class DashboardFragment : Fragment() {
                     // Retrieve data.
                     val data = response.body()!!
                     Toast.makeText(activity, ":)", Toast.LENGTH_LONG).show()
-                    val response4 = ResourceApiConntector.apiClient.getAll("Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDMwNjgzNjQsInVzZXJfbmFtZSI6InRlc3R0ZXN0MTIiLCJhdXRob3JpdGllcyI6WyJST0xFX2FkbWluIl0sImp0aSI6IjFlMTRlNWMyLWRhYmEtNDYxYy05Mzg2LWU5ZWY5Y2ViZjE5NiIsImNsaWVudF9pZCI6ImZvb0NsaWVudElkIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.UoZfvxPOzhrK8sj6XPgsTkE6GCkUYa4pvC_O-PJV6zU")
-                    Toast.makeText(activity, response4.body()!!.size, Toast.LENGTH_LONG).show()
+//                    val response4 = ResourceApiConntector.apiClient.getAll("Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDMwNjgzNjQsInVzZXJfbmFtZSI6InRlc3R0ZXN0MTIiLCJhdXRob3JpdGllcyI6WyJST0xFX2FkbWluIl0sImp0aSI6IjFlMTRlNWMyLWRhYmEtNDYxYy05Mzg2LWU5ZWY5Y2ViZjE5NiIsImNsaWVudF9pZCI6ImZvb0NsaWVudElkIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.UoZfvxPOzhrK8sj6XPgsTkE6GCkUYa4pvC_O-PJV6zU")
+//                    Toast.makeText(activity, response4.body()!!.size, Toast.LENGTH_LONG).show()
 
                 } else {
                     Toast.makeText(

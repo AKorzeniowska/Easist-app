@@ -39,4 +39,11 @@
     <string name="warning__invalid_data">Błędne dane formularza</string>
     <string name="info__login_successful">Zalogowano</string>
     <string name="info__signup_successful">Zarejestrowano</string>
+    <string name="formatter__time">%1$d:%2$s</string>
+    <string name="save_symptom">Zapisz objawy</string>
+    <string name="doctor_full_name">Imię i nazwisko lekarza</string>
+    <string name="add_symptom">Dodaj objawy</string>
+    <string name="info__save_successful">Zapisano pomyślnie</string>
+    <string name="symptom_name">Nazwa objawu</string>
+    <string name="comment">Komentarz</string>
 </resources>

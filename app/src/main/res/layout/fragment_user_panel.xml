@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneNumberTextProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/emailAddressTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/phoneNumberTextProfileLabel"
+        app:layout_constraintTop_toBottomOf="@+id/ageTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/usernameTextProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/ageTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usernameTextProfileLabel"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstNameTextProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/lastNameTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/firstNameTextProfileLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lastNameTextProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/usernameTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lastNameTextProfileLabel"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ageTextProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumberTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ageTextProfileLabel"
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/address1TextProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/address2TextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/address1TextProfileLabel"
+        app:layout_constraintTop_toBottomOf="@+id/emailAddressTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/address2TextProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/addSymptomButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/address2TextProfileLabel"
+        app:layout_constraintTop_toBottomOf="@+id/address1TextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/emailAddressTextProfile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/address1TextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/emailAddressTextProfileLabel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextProfile" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneNumberTextProfileLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/phone_number"
+        app:layout_constraintBottom_toTopOf="@+id/emailAddressTextProfileLabel"
+        app:layout_constraintEnd_toStartOf="@+id/phoneNumberTextProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageTextProfileLabel" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/address2TextProfileLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/address2"
+        app:layout_constraintBottom_toTopOf="@+id/addSymptomButton"
+        app:layout_constraintEnd_toStartOf="@+id/address2TextProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address1TextProfileLabel" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/address1TextProfileLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/address1"
+        app:layout_constraintBottom_toTopOf="@+id/address2TextProfileLabel"
+        app:layout_constraintEnd_toStartOf="@+id/address1TextProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailAddressTextProfileLabel" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ageTextProfileLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/age"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumberTextProfileLabel"
+        app:layout_constraintEnd_toStartOf="@+id/ageTextProfile"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextProfileLabel" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/usernameTextProfileLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/username"
+        app:layout_constraintBottom_toTopOf="@+id/ageTextProfileLabel"
+        app:layout_constraintEnd_toStartOf="@+id/usernameTextProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameTextProfileLabel" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lastNameTextProfileLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/last_name"
+        app:layout_constraintBottom_toTopOf="@+id/usernameTextProfileLabel"
+        app:layout_constraintEnd_toStartOf="@+id/lastNameTextProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameTextProfileLabel" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstNameTextProfileLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/first_name"
+        app:layout_constraintBottom_toTopOf="@+id/lastNameTextProfileLabel"
+        app:layout_constraintEnd_toStartOf="@+id/firstNameTextProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/emailAddressTextProfileLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/email_address"
+        app:layout_constraintBottom_toTopOf="@+id/address1TextProfileLabel"
+        app:layout_constraintEnd_toStartOf="@+id/emailAddressTextProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextProfileLabel" />
+
+    <Button
+        android:id="@+id/addSymptomButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:text="@string/add_symptom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

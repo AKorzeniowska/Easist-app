@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigationUserInfo -> {
-                val fragment = DiaryFormFragmentSecond()
+                val fragment = UserPanelFragment()
                 supportFragmentManager.beginTransaction().replace(
                     R.id.container,
                     fragment,

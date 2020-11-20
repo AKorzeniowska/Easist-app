@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.edu.agh.easist.easistapp.R
 import com.edu.agh.easist.easistapp.models.UserData
+import com.edu.agh.easist.easistapp.utils.openNewFragment
+import com.edu.agh.easist.easistapp.utils.openNewFragmentWithData
 import kotlinx.android.synthetic.main.fragment_sign_up_first.*
 
 class SignUpFragmentFirst : Fragment() {
@@ -18,9 +20,6 @@ class SignUpFragmentFirst : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_sign_up_first, container, false)
-
-
-
         return view
     }
 
@@ -38,13 +37,7 @@ class SignUpFragmentFirst : Fragment() {
             submitSignIn()
         }
         redirectToSignInButton.setOnClickListener{
-            val fragment = SignInFragment()
-            activity?.supportFragmentManager?.beginTransaction()?.replace(
-                R.id.container,
-                fragment,
-                fragment.javaClass.simpleName
-            )
-                ?.commit()
+            openNewFragment(activity, SignInFragment())
         }
     }
 
@@ -64,18 +57,7 @@ class SignUpFragmentFirst : Fragment() {
         }
 
         if (userData.isFirstPartValid()){
-            val ft: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            val fragment = SignUpFragmentSecond()
-
-            val bundle = Bundle()
-            bundle.putSerializable("userData", userData)
-            fragment.arguments = bundle
-            ft.replace(R.id.container, fragment, fragment.javaClass.simpleName)
-            ft.addToBackStack(null)
-            ft.commit()
-//            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment, fragment.javaClass.simpleName)
-//                ?.commit()
+            openNewFragmentWithData(activity, SignUpFragmentSecond(), "userData", userData)
         } else {
             Toast.makeText(context, R.string.warning__invalid_data, Toast.LENGTH_SHORT).show()
         }

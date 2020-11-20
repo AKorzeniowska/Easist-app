@@ -11,9 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edu.agh.easist.easistapp.R
 import com.edu.agh.easist.easistapp.logic.AuthApiConnector
 import com.edu.agh.easist.easistapp.logic.ResourceApiConntector
+import com.edu.agh.easist.easistapp.models.DiaryEntry
+import com.edu.agh.easist.easistapp.models.DiaryEntryData
 import com.edu.agh.easist.easistapp.models.UserData
 import com.edu.agh.easist.easistapp.ui.adapters.SymptomRowAdapter
 import com.edu.agh.easist.easistapp.ui.models.SymptomRowModel
+import com.edu.agh.easist.easistapp.utils.getToken
+import com.edu.agh.easist.easistapp.utils.openNewFragment
+import com.edu.agh.easist.easistapp.utils.saveToken
 import kotlinx.android.synthetic.main.fragment_sign_up_first.signUpButton
 import kotlinx.android.synthetic.main.fragment_sign_up_second.*
 import kotlinx.coroutines.Dispatchers
@@ -24,6 +29,7 @@ import timber.log.Timber
 
 class DiaryFormFragmentSecond : Fragment() {
     private lateinit var symptomRowModels: ArrayList<SymptomRowModel>
+    private lateinit var diaryEntryData: DiaryEntryData
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +37,8 @@ class DiaryFormFragmentSecond : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_diary_from_second, container, false)
+
+        getBundle()
 
         val recycler = view.findViewById<RecyclerView>(R.id.symptomRecyclerView)
         symptomRowModels = ArrayList()
@@ -47,4 +55,34 @@ class DiaryFormFragmentSecond : Fragment() {
         super.onActivityCreated(savedInstanceState)
     }
 
+    private fun getBundle(){
+        val bundle = arguments
+        val diaryEntryData: DiaryEntryData = bundle!!.getSerializable("diaryEntry") as DiaryEntryData
+        this.diaryEntryData = diaryEntryData
+    }
+
+    private fun sendDiaryEntrySubmitRequest(){
+        GlobalScope.launch(Dispatchers.Main) {
+            try {
+                if (getToken(activity) == null)
+                    throw java.lang.Exception("Unauthorized")
+
+                val response = ResourceApiConntector.apiClient.addDiaryEntry(getToken(activity)!!, diaryEntryData)
+                Timber.d(response.toString())
+                if (response.isSuccessful && response.body() != null) {
+                    Toast.makeText(context, R.string.info__save_successful, Toast.LENGTH_SHORT).show()
+                    openNewFragment(activity, DiaryFragment())
+                } else {
+                    Toast.makeText(
+                            activity,
+                            "Error: ${response.message()}",
+                            Toast.LENGTH_LONG).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(activity,
+                        "Error while connecting: ${e.message}",
+                        Toast.LENGTH_LONG).show()
+            }
+        }
+    }
 }

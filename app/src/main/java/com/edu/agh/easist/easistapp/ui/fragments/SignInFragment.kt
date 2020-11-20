@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.edu.agh.easist.easistapp.R
 import com.edu.agh.easist.easistapp.logic.AuthApiConnector
 import com.edu.agh.easist.easistapp.logic.ResourceApiConntector
+import com.edu.agh.easist.easistapp.utils.openNewFragment
 import com.edu.agh.easist.easistapp.utils.saveToken
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 import kotlinx.coroutines.Dispatchers
@@ -40,9 +41,7 @@ class SignInFragment : Fragment() {
         }
 
         redirectToSignUpButton.setOnClickListener{
-            val fragment = SignUpFragmentFirst()
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment, fragment.javaClass.simpleName)
-                ?.commit()
+            openNewFragment(activity, SignUpFragmentFirst())
         }
     }
 
@@ -64,9 +63,7 @@ class SignInFragment : Fragment() {
                 if (response.isSuccessful && response.body() != null) {
                     Toast.makeText(context, R.string.info__login_successful, Toast.LENGTH_SHORT).show()
                     saveToken(response.body()!!.accessToken, activity)
-                    val fragment = DiaryFragment()
-                    activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment, fragment.javaClass.simpleName)
-                        ?.commit()
+                    openNewFragment(activity, DiaryFragment())
                 } else if (response.code() == 400){
                     Toast.makeText(
                         activity,

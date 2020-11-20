@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import com.edu.agh.easist.easistapp.R
 import com.edu.agh.easist.easistapp.logic.AuthApiConnector
 import com.edu.agh.easist.easistapp.models.UserData
+import com.edu.agh.easist.easistapp.utils.openNewFragment
 import kotlinx.android.synthetic.main.fragment_sign_up_first.*
 import kotlinx.android.synthetic.main.fragment_sign_up_first.signUpButton
 import kotlinx.android.synthetic.main.fragment_sign_up_second.*
@@ -90,10 +91,7 @@ class SignUpFragmentSecond : Fragment() {
                 if (response.isSuccessful) {
 //                    val data = response.body()!!
                     Toast.makeText(context, R.string.info__signup_successful, Toast.LENGTH_SHORT).show()
-                    val fragment = SignInFragment()
-                    activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment, fragment.javaClass.simpleName)
-                        ?.commit()
+                    openNewFragment(activity, SignInFragment())
                 } else {
                     Toast.makeText(
                         activity,
