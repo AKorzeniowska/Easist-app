@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneNumberTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/emailAddressInfoTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneInfoTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumberTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstAndLastNameTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstAndLastNameInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/firstAndLastNameTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctorPanelImageView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstAndLastNameTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/phoneInfoTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstAndLastNameInfoTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/emailAddressTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/addressInfoTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailAddressInfoTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/addressInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/addressTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailAddressTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/addressTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginBottom="130dp"
+        android:textAlignment="center"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/declineDoctorInvitationButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressInfoTextProfile" />
+
+
+    <Button
+        android:id="@+id/acceptDoctorInvitationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accept_pending_invitation"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/declineDoctorInvitationButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/declineDoctorInvitationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:text="@string/decline_pending_invitation"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/noDoctorAssignedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_assigned_doctor"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/doctorPanelImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sample_profile_pic" />
+
+    <TextView
+        android:id="@+id/emailAddressInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/emailAddressTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextProfile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

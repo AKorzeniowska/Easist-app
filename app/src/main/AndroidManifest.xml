@@ -4,6 +4,7 @@
     package="com.edu.agh.easist.easistapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="INSTALL_GRANT_RUNTIME_PERMISSIONS"/>
 
     <application
         android:name=".MainApplication"

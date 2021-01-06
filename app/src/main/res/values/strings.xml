@@ -39,11 +39,67 @@
     <string name="warning__invalid_data">Błędne dane formularza</string>
     <string name="info__login_successful">Zalogowano</string>
     <string name="info__signup_successful">Zarejestrowano</string>
-    <string name="formatter__time">%1$d:%2$s</string>
+    <string name="formatter__time">%1$s:%2$s</string>
     <string name="save_symptom">Zapisz objawy</string>
     <string name="doctor_full_name">Imię i nazwisko lekarza</string>
-    <string name="add_symptom">Dodaj objawy</string>
+    <string name="list_symptoms">Pokaż listę objawów</string>
     <string name="info__save_successful">Zapisano pomyślnie</string>
     <string name="symptom_name">Nazwa objawu</string>
     <string name="comment">Komentarz</string>
+    <string name="diary_edit_today_entry">Edytuj dzisiejszy wpis</string>
+    <string name="hint__statistic_name">Nazwa statystyki</string>
+    <string name="chart__symptom_title">Wykres objawów</string>
+    <string name="chart__symptom_legend">Nasilenie</string>
+    <string name="chart__mood_title">Wykres samopoczucia</string>
+    <string name="chart__mood_legend">Poziom samopoczucia / czas snu</string>
+    <string name="chart__mood_series">Samopoczucie</string>
+    <string name="chart__sleep_series">Czas snu</string>
+    <string name="save_medicine">Zapisz lek</string>
+    <string name="medicine_name">Nazwa leku</string>
+    <string name="dose">Dawka</string>
+    <string name="list_medicines">Pokaż listę leków</string>
+    <string name="input_name_or_username">Wpisz nazwisko lub nazwę użytkownika</string>
+    <string name="search">Szukaj</string>
+    <string name="age_patient_search">Wiek: %1$d</string>
+    <string name="invitation_pending">Zaproszenie oczekuje na zatwierdzenie</string>
+    <string name="accept_pending_invitation">Zaakceptuj zaproszenie od lekarza</string>
+    <string name="no_assigned_doctor">
+        <br>Nie masz przypisanego lekarza</br>
+        <br>ani oczekujących zaproszeń</br>
+    </string>
+    <string name="decline_pending_invitation">Odrzuć zaproszenie</string>
+    <string name="formatter__sleep_time">Czas snu: %1$.2fh</string>
+    <string name="formatter__woke_up_hour">Godzina wstania: %1$s</string>
+    <string name="formatter__went_sleep_hour">Godzina zaśnięcia: %1$s</string>
+    <string name="firstname_and_lastname_info">Imię i nazwisko:</string>
+    <string name="formatter__firstname_and_lastname">%1$s %2$s</string>
+    <string name="phone_number_info">Numer telefonu:</string>
+    <string name="email_address_info">Adres e-mail:</string>
+    <string name="address_info">Adres:</string>
+    <string name="formatter__address">
+        <br>%1$s,</br>
+        <br>%2$s</br>
+    </string>
+    <string name="username_info">Nazwa użytkownika:</string>
+    <string name="formatter__age">%1$d lat(a)</string>
+    <string name="age_info">Wiek:</string>
+    <string name="diary_form_symptoms_info">
+        <br>Zaznacz w jakim stopniu</br>
+        <br>odczuwałeś dziś poniższe objawy</br>
+    </string>
+    <string name="diary_form_medicines_info">
+        <br>Zaznacz które z poniższych</br>
+        <br>leków dziś zażyłeś</br>
+    </string>
+    <string name="medicine_list_info">Lista leków</string>
+    <string name="formatter__medicine">%1$s, %2$s</string>
+    <string name="symptom_form_title">Dodawanie nowego objawu</string>
+    <string name="medicine_form_title">Dodawanie nowego leku</string>
+    <string name="symptom_list_info">Lista objawów</string>
+
+
+    <string-array name="statistics_spinner">
+        <item name="statistic_symptoms">Symptomy</item>
+        <item name="statistic_mood_and_sleep">Samopoczucie i czas snu</item>
+    </string-array>
 </resources>

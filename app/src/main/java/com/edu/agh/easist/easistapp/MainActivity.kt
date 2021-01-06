@@ -27,16 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
         when (menuItem.itemId) {
-            R.id.navigationPatients -> {
-                val fragment = PatientsListFragment()
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.container,
-                    fragment,
-                    fragment.javaClass.simpleName
-                )
-                    .commit()
-                return@OnNavigationItemSelectedListener true
-            }
             R.id.navigationDiary -> {
                 val fragment = DiaryFragment()
                 supportFragmentManager.beginTransaction().replace(
@@ -58,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigationDoctorInfo -> {
-                val fragment = DiaryFormFragmentFirst()
+                val fragment = DoctorPanelFragment()
                 supportFragmentManager.beginTransaction().replace(
                     R.id.container,
                     fragment,
@@ -67,8 +57,8 @@ class MainActivity : AppCompatActivity() {
                     .commit()
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigationUserInfo -> {
-                val fragment = UserPanelFragment()
+            R.id.navigationPatientInfo -> {
+                val fragment = PatientPanelFragment()
                 supportFragmentManager.beginTransaction().replace(
                     R.id.container,
                     fragment,

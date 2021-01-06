@@ -4,6 +4,10 @@
         <domain includeSubdomains="true">127.0.0.1</domain>
         <domain includeSubdomains="true">localhost</domain>
         <domain includeSubdomains="true">192.168.0.101</domain>
+        <!--        Reja 11             -->
+        <domain includeSubdomains="true">192.168.0.107</domain>
+        <!--        Mogilska 19         -->
+        <domain includeSubdomains="true">192.168.0.102</domain>
         <domain includeSubdomains="true">10.0.2.2</domain>
     </domain-config>
 </network-security-config>

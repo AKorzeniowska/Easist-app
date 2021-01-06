@@ -4,18 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.edu.agh.easist.easistapp.R
-import com.edu.agh.easist.easistapp.logic.AuthApiConnector
 import com.edu.agh.easist.easistapp.logic.ResourceApiConntector
 import com.edu.agh.easist.easistapp.models.SymptomData
-import com.edu.agh.easist.easistapp.ui.adapters.PatientRowAdapter
-import com.edu.agh.easist.easistapp.ui.models.PatientRowModel
-import com.edu.agh.easist.easistapp.utils.getToken
-import com.edu.agh.easist.easistapp.utils.openNewFragment
+import com.edu.agh.easist.easistapp.utils.*
 import kotlinx.android.synthetic.main.fragment_symptom_form.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -35,6 +28,9 @@ class SymptomFormFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        showMenu(requireActivity(), false)
+        showToolbar(requireActivity(), true)
+        setToolbar(requireActivity(), getString(R.string.symptom_form_title), null)
         setButtonFunctions()
     }
 
@@ -42,7 +38,7 @@ class SymptomFormFragment : Fragment() {
         submitSymptomForm.setOnClickListener{
             val symptomData = getSymptomData()
             if (symptomData == null)
-                Toast.makeText(context, R.string.warning__invalid_data, Toast.LENGTH_SHORT).show()
+                showToast(context, R.string.warning__invalid_data)
             else
                 sendAddSymptomRequest(symptomData)
         }
@@ -66,18 +62,16 @@ class SymptomFormFragment : Fragment() {
                 val response = ResourceApiConntector.apiClient.addSymptom(getToken(activity)!!, symptomData)
                 Timber.d(response.toString())
                 if (response.isSuccessful) {
-                    Toast.makeText(context, R.string.info__save_successful, Toast.LENGTH_SHORT).show()
-                    openNewFragment(activity, UserPanelFragment())
+                    showToast(context, R.string.info__save_successful)
+                    openNewFragment(activity, PatientPanelFragment())
                 } else {
-                    Toast.makeText(
+                    showToast(
                             activity,
-                            "Error: ${response.message()}",
-                            Toast.LENGTH_LONG).show()
+                            "Error: ${response.message()}")
                 }
             } catch (e: Exception) {
-                Toast.makeText(activity,
-                        "Error while connecting: ${e.message}",
-                        Toast.LENGTH_LONG).show()
+                showToast(activity,
+                        "Error while connecting: ${e.message}")
             }
         }
     }

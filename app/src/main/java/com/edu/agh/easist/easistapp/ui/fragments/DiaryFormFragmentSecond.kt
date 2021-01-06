@@ -11,14 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edu.agh.easist.easistapp.R
 import com.edu.agh.easist.easistapp.logic.AuthApiConnector
 import com.edu.agh.easist.easistapp.logic.ResourceApiConntector
-import com.edu.agh.easist.easistapp.models.DiaryEntry
-import com.edu.agh.easist.easistapp.models.DiaryEntryData
-import com.edu.agh.easist.easistapp.models.UserData
+import com.edu.agh.easist.easistapp.models.*
 import com.edu.agh.easist.easistapp.ui.adapters.SymptomRowAdapter
 import com.edu.agh.easist.easistapp.ui.models.SymptomRowModel
-import com.edu.agh.easist.easistapp.utils.getToken
-import com.edu.agh.easist.easistapp.utils.openNewFragment
-import com.edu.agh.easist.easistapp.utils.saveToken
+import com.edu.agh.easist.easistapp.utils.*
+import kotlinx.android.synthetic.main.fragment_diary_from_second.*
 import kotlinx.android.synthetic.main.fragment_sign_up_first.signUpButton
 import kotlinx.android.synthetic.main.fragment_sign_up_second.*
 import kotlinx.coroutines.Dispatchers
@@ -37,22 +34,16 @@ class DiaryFormFragmentSecond : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_diary_from_second, container, false)
-
         getBundle()
-
-        val recycler = view.findViewById<RecyclerView>(R.id.symptomRecyclerView)
-        symptomRowModels = ArrayList()
-        symptomRowModels.add(SymptomRowModel(1, "Anxiety", 0))
-        symptomRowModels.add(SymptomRowModel(2, "Jeszcze gorzej", 0))
-        val adapter = SymptomRowAdapter(symptomRowModels)
-        recycler.adapter = adapter
-        recycler.layoutManager = LinearLayoutManager(context)
-
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onStart() {
+        super.onStart()
+        showMenu(requireActivity(), false)
+        showToolbar(requireActivity(), false)
+        setButtonFunctions()
+        getUserSymptoms()
     }
 
     private fun getBundle(){
@@ -61,28 +52,57 @@ class DiaryFormFragmentSecond : Fragment() {
         this.diaryEntryData = diaryEntryData
     }
 
-    private fun sendDiaryEntrySubmitRequest(){
+    private fun getUserSymptoms(){
         GlobalScope.launch(Dispatchers.Main) {
             try {
                 if (getToken(activity) == null)
                     throw java.lang.Exception("Unauthorized")
 
-                val response = ResourceApiConntector.apiClient.addDiaryEntry(getToken(activity)!!, diaryEntryData)
+                val response = ResourceApiConntector.apiClient.getSymptoms(getToken(activity)!!, getUsername(activity)!!)
                 Timber.d(response.toString())
                 if (response.isSuccessful && response.body() != null) {
-                    Toast.makeText(context, R.string.info__save_successful, Toast.LENGTH_SHORT).show()
-                    openNewFragment(activity, DiaryFragment())
+                    setSymptoms(response.body()!!)
                 } else {
-                    Toast.makeText(
+                    showToast(
                             activity,
-                            "Error: ${response.message()}",
-                            Toast.LENGTH_LONG).show()
+                            "Error: ${response.message()}")
                 }
             } catch (e: Exception) {
-                Toast.makeText(activity,
-                        "Error while connecting: ${e.message}",
-                        Toast.LENGTH_LONG).show()
+                showToast(activity,
+                        "Error while connecting: ${e.message}")
             }
         }
+    }
+
+    private fun setSymptoms(symptoms: Collection<Symptom>){
+        symptomRowModels = ArrayList()
+        for (symptom in symptoms){
+            val rowModel = SymptomRowModel(symptom.id!!, symptom.name!!, 0)
+            symptomRowModels.add(rowModel)
+        }
+        val adapter = SymptomRowAdapter(symptomRowModels)
+        symptomRecyclerView.adapter = adapter
+        symptomRecyclerView.layoutManager = LinearLayoutManager(context)
+    }
+
+    private fun setButtonFunctions(){
+        saveDiaryEntryButton.setOnClickListener{
+            getSymptomEntries()
+            if (!diaryEntryData.isSecondPartValid()) {
+                showToast(context, R.string.warning__invalid_data)
+            } else {
+                openNewFragmentWithData(activity, DiaryFormFragmentThird(),
+                        "diaryEntry", diaryEntryData, addToBackStack = true)
+            }
+        }
+    }
+
+    private fun getSymptomEntries(){
+        val symptomEntries: MutableList<SymptomEntryData> = mutableListOf()
+        for (rowModel in symptomRowModels){
+            val symptomEntryData = SymptomEntryData(rowModel)
+            symptomEntries.add(symptomEntryData)
+        }
+        diaryEntryData.symptomEntries = symptomEntries
     }
 }

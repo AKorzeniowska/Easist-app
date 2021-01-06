@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneNumberTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/patientEmailAddressInfoTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberInfoTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/usernameTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/ageInfoTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameInfoTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstAndLastNameInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/firstAndLastNameTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstAndLastNameTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/usernameInfoTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstAndLastNameInfoTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ageTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumberInfoTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageInfoTextProfile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/emailAddressTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:textSize="@dimen/content_font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/listMedicinesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/patientEmailAddressInfoTextProfile" />
+
+
+    <Button
+        android:id="@+id/listSymptomsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/list_symptoms"
+        app:layout_constraintBottom_toTopOf="@+id/listMedicinesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/listMedicinesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:text="@string/list_medicines"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/usernameInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/usernameTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstAndLastNameTextProfile" />
+
+    <TextView
+        android:id="@+id/ageInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/ageTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextProfile" />
+
+    <TextView
+        android:id="@+id/phoneNumberInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumberTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageTextProfile" />
+
+    <TextView
+        android:id="@+id/patientEmailAddressInfoTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/info_font_size"
+        app:layout_constraintBottom_toTopOf="@+id/emailAddressTextProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextProfile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

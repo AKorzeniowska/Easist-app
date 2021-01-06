@@ -3,23 +3,145 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
+    app:startDestination="@id/signInFragment">
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.edu.agh.easist.easistapp.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/signInFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragmentFirst"
+            app:destination="@id/signUpFragmentFirst" />
+        <action
+            android:id="@+id/action_signInFragment_to_splashScreenFragment2"
+            app:destination="@id/splashScreenFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.edu.agh.easist.easistapp.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/signUpFragmentFirst"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.SignUpFragmentFirst"
+        android:label="SignUpFragmentFirst"
+        tools:layout="@layout/fragment_sign_up_first">
+        <action
+            android:id="@+id/action_signUpFragmentFirst_to_signUpFragmentSecond2"
+            app:destination="@id/signUpFragmentSecond" />
+    </fragment>
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.edu.agh.easist.easistapp.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/signUpFragmentSecond"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.SignUpFragmentSecond"
+        android:label="SignUpFragmentSecond"
+        tools:layout="@layout/fragment_sign_up_second">
+        <action
+            android:id="@+id/action_signUpFragmentSecond_to_signInFragment2"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.DiaryFragment"
+        android:label="DiaryFragment"
+        tools:layout="@layout/fragment_diary">
+        <action
+            android:id="@+id/action_diaryFragment_to_diaryEntryDetailsFragment"
+            app:destination="@id/diaryEntryDetailsFragment" />
+        <action
+            android:id="@+id/action_diaryFragment_to_diaryFormFragmentFirst"
+            app:destination="@id/diaryFormFragmentFirst" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.SplashScreenFragment"
+        android:label="SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_doctorPanelFragment"
+            app:destination="@id/doctorPanelFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_patientPanelFragment"
+            app:destination="@id/patientPanelFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryFormFragmentFirst"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.DiaryFormFragmentFirst"
+        android:label="DiaryFormFragmentFirst"
+        tools:layout="@layout/fragment_diary_form_first">
+        <action
+            android:id="@+id/action_diaryFormFragmentFirst_to_diaryFormFragmentSecond"
+            app:destination="@id/diaryFormFragmentSecond" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryFormFragmentSecond"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.DiaryFormFragmentSecond"
+        android:label="DiaryFormFragmentSecond"
+        tools:layout="@layout/fragment_diary_from_second">
+        <action
+            android:id="@+id/action_diaryFormFragmentSecond_to_diaryFormFragmentThird"
+            app:destination="@id/diaryFormFragmentThird" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryFormFragmentThird"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.DiaryFormFragmentThird"
+        android:label="DiaryFormFragmentThird"
+        tools:layout="@layout/fragment_diary_form_third"/>
+    <fragment
+        android:id="@+id/doctorPanelFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.DoctorPanelFragment"
+        android:label="DoctorPanelFragment"
+        tools:layout="@layout/fragment_doctor_panel"/>
+    <fragment
+        android:id="@+id/diaryEntryDetailsFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.DiaryEntryDetailsFragment"
+        android:label="DiaryEntryDetailsFragment"
+        tools:layout="@layout/fragment_diary_entry_details"/>
+    <fragment
+        android:id="@+id/medicineListFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.MedicineListFragment"
+        android:label="MedicineListFragment" >
+        <action
+            android:id="@+id/action_medicineListFragment_to_medicineFormFragment"
+            app:destination="@id/medicineFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientPanelFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.PatientPanelFragment"
+        android:label="PatientPanelFragment" >
+        <action
+            android:id="@+id/action_patientPanelFragment_to_medicineListFragment"
+            app:destination="@id/medicineListFragment" />
+        <action
+            android:id="@+id/action_patientPanelFragment_to_symptomListFragment"
+            app:destination="@id/symptomListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomListFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.SymptomListFragment"
+        android:label="SymptomListFragment" >
+        <action
+            android:id="@+id/action_symptomListFragment_to_symptomFormFragment"
+            app:destination="@id/symptomFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicineFormFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.MedicineFormFragment"
+        android:label="MedicineFormFragment" />
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.StatisticsFragment"
+        android:label="StatisticsFragment" />
+    <fragment
+        android:id="@+id/symptomFormFragment"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.SymptomFormFragment"
+        android:label="SymptomFormFragment" />
+    <fragment
+        android:id="@+id/patientSearchFragment2"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.PatientSearchFragment"
+        android:label="PatientSearchFragment" />
+    <fragment
+        android:id="@+id/patientsListFragment2"
+        android:name="com.edu.agh.easist.easistapp.ui.fragments.PatientsListFragment"
+        android:label="PatientsListFragment" />
 </navigation>

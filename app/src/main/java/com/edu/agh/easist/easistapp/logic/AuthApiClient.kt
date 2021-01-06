@@ -9,14 +9,11 @@ import retrofit2.http.*
 interface AuthApiClient {
 
     @POST("/auth/register")
-    suspend fun register(
-    @Body userData: UserData
-    ): Response<Void>
+    suspend fun register(@Body userData: UserData): Response<Void>
 
 
     @POST("/oauth/token")
     suspend fun login(@Query("grant_type") grantType: String = "password",
                       @Query("username") username: String,
                       @Query("password") password: String): Response<OAuthResponse>
-
 }

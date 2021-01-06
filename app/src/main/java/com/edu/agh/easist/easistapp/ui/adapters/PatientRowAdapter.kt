@@ -1,14 +1,24 @@
 package com.edu.agh.easist.easistapp.ui.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.edu.agh.easist.easistapp.R
+import com.edu.agh.easist.easistapp.logic.ResourceApiConntector
+import com.edu.agh.easist.easistapp.models.InvitationData
+import com.edu.agh.easist.easistapp.ui.fragments.DiaryFragment
+import com.edu.agh.easist.easistapp.ui.fragments.PatientsListFragment
 import com.edu.agh.easist.easistapp.ui.models.PatientRowModel
+import com.edu.agh.easist.easistapp.utils.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class PatientRowAdapter (private val mPatientRows: List<PatientRowModel>) : RecyclerView.Adapter<PatientRowAdapter.ViewHolder>() {
+class PatientRowAdapter (private val mPatientRows: List<PatientRowModel>, private val context: Context) : RecyclerView.Adapter<PatientRowAdapter.ViewHolder>() {
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         val nameTextView = itemView.findViewById<TextView>(R.id.patientEntryNameEditText)!!
@@ -25,7 +35,19 @@ class PatientRowAdapter (private val mPatientRows: List<PatientRowModel>) : Recy
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val rowModel = mPatientRows[position]
         holder.nameTextView.text = rowModel.name
-        holder.noteTextView.text = rowModel.note
+        if (rowModel.note != null) {
+            holder.noteTextView.text = rowModel.note
+        } else {
+            holder.noteTextView.visibility = View.GONE
+
+            val activity = (context as FragmentActivity)
+            holder.itemView.setOnClickListener {
+                saveBrowsedUser(rowModel.username, activity)
+                saveBrowsedUserFullName(rowModel.name, activity)
+                openNewFragmentWithData(activity, DiaryFragment(), "patient_username",
+                        rowModel.username, addToBackStack = true)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

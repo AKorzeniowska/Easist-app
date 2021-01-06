@@ -11,5 +11,5 @@ data class OAuthResponse (
     @SerializedName("jti") val jti : String? = null,
 
     @SerializedName("error") val error : String? = null,
-    @SerializedName("error_description") val errorDescription : String? = null,
+    @SerializedName("error_description") val errorDescription : String? = null
 )

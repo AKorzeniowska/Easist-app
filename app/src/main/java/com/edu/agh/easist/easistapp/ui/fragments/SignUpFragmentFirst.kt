@@ -11,6 +11,8 @@ import com.edu.agh.easist.easistapp.R
 import com.edu.agh.easist.easistapp.models.UserData
 import com.edu.agh.easist.easistapp.utils.openNewFragment
 import com.edu.agh.easist.easistapp.utils.openNewFragmentWithData
+import com.edu.agh.easist.easistapp.utils.showMenu
+import com.edu.agh.easist.easistapp.utils.showToast
 import kotlinx.android.synthetic.main.fragment_sign_up_first.*
 
 class SignUpFragmentFirst : Fragment() {
@@ -23,12 +25,9 @@ class SignUpFragmentFirst : Fragment() {
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     override fun onStart() {
         super.onStart()
+        showMenu(requireActivity(), false)
         setButtonFunctions()
     }
 
@@ -43,7 +42,7 @@ class SignUpFragmentFirst : Fragment() {
 
     private fun submitSignIn(){
         if (passwordSignUpEditText.text.toString() != repeatPasswordSignUpEditText.text.toString()){
-            Toast.makeText(context, R.string.warning__passwords_are_different, Toast.LENGTH_SHORT).show()
+            showToast(context, R.string.warning__passwords_are_different)
             return
         }
 
@@ -59,7 +58,7 @@ class SignUpFragmentFirst : Fragment() {
         if (userData.isFirstPartValid()){
             openNewFragmentWithData(activity, SignUpFragmentSecond(), "userData", userData)
         } else {
-            Toast.makeText(context, R.string.warning__invalid_data, Toast.LENGTH_SHORT).show()
+            showToast(context, R.string.warning__invalid_data)
         }
     }
 }

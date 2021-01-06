@@ -10,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object AuthApiConnector {
 
+//    private const val BASE_URL = "http://192.168.0.101:8080/"
     private const val BASE_URL = "http://192.168.0.101:8080/"
-//    private const val BASE_URL = "http://10.0.0.2:8080/"
 
     private val gson: Gson = GsonBuilder()
         .setLenient()

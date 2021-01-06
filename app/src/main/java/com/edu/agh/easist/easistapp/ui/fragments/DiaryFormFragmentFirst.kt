@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment
 import com.edu.agh.easist.easistapp.R
 import com.edu.agh.easist.easistapp.models.DiaryEntryData
 import com.edu.agh.easist.easistapp.models.SleepEntryData
-import com.edu.agh.easist.easistapp.utils.openNewFragmentWithData
-import com.edu.agh.easist.easistapp.utils.parseStringToTime
-import com.edu.agh.easist.easistapp.utils.setTimePicker
+import com.edu.agh.easist.easistapp.utils.*
 import kotlinx.android.synthetic.main.fragment_diary_form_first.*
 
 
@@ -26,12 +24,9 @@ class DiaryFormFragmentFirst : Fragment() {
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     override fun onStart() {
         super.onStart()
+        showMenu(requireActivity(), false)
         setTimePickers()
         setButtonFunctions()
     }
@@ -41,9 +36,9 @@ class DiaryFormFragmentFirst : Fragment() {
             val diaryEntry: DiaryEntryData? = submitDiaryEntry()
             if (diaryEntry != null){
                 openNewFragmentWithData(activity, DiaryFormFragmentSecond(),
-                        "diaryEntry", diaryEntry)
+                        "diaryEntry", diaryEntry, addToBackStack = true)
             } else {
-                Toast.makeText(context, R.string.warning__invalid_data, Toast.LENGTH_SHORT).show()
+                showToast(context, R.string.warning__invalid_data)
             }
         }
     }

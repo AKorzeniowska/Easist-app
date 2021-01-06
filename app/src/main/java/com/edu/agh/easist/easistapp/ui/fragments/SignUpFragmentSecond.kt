@@ -12,6 +12,8 @@ import com.edu.agh.easist.easistapp.R
 import com.edu.agh.easist.easistapp.logic.AuthApiConnector
 import com.edu.agh.easist.easistapp.models.UserData
 import com.edu.agh.easist.easistapp.utils.openNewFragment
+import com.edu.agh.easist.easistapp.utils.showMenu
+import com.edu.agh.easist.easistapp.utils.showToast
 import kotlinx.android.synthetic.main.fragment_sign_up_first.*
 import kotlinx.android.synthetic.main.fragment_sign_up_first.signUpButton
 import kotlinx.android.synthetic.main.fragment_sign_up_second.*
@@ -30,9 +32,7 @@ class SignUpFragmentSecond : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_sign_up_second, container, false)
-
         getBundle()
-
         return view
     }
 
@@ -49,6 +49,7 @@ class SignUpFragmentSecond : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        showMenu(requireActivity(), false)
         setButtonFunctions()
     }
 
@@ -79,7 +80,7 @@ class SignUpFragmentSecond : Fragment() {
         if (userData.isSecondPartValid()){
             sendRegisterRequest()
         } else {
-            Toast.makeText(context, R.string.warning__invalid_data, Toast.LENGTH_SHORT).show()
+            showToast(context, R.string.warning__invalid_data)
         }
     }
 
@@ -90,19 +91,17 @@ class SignUpFragmentSecond : Fragment() {
                 Timber.d(response.toString())
                 if (response.isSuccessful) {
 //                    val data = response.body()!!
-                    Toast.makeText(context, R.string.info__signup_successful, Toast.LENGTH_SHORT).show()
+                    showToast(context, R.string.info__signup_successful)
                     openNewFragment(activity, SignInFragment())
                 } else {
-                    Toast.makeText(
+                    showToast(
                         activity,
-                        "Error : ${response.message()}",
-                        Toast.LENGTH_LONG).show()
+                        "Error : ${response.message()}")
                 }
 
             } catch (e: Exception) {
-                Toast.makeText(activity,
-                    "Error while connecting: ${e.message}",
-                    Toast.LENGTH_LONG).show()
+                showToast(activity,
+                    "Error while connecting: ${e.message}")
             }
         }
     }

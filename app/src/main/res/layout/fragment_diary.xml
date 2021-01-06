@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/diaryEntryAddEditEntry"
         tools:layout_editor_absoluteX="202dp" />
 
@@ -18,12 +17,24 @@
         android:id="@+id/diaryEntryAddEditEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="5dp"
         android:text="@string/diary_add_today_entry"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/diaryEntriesRecycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
